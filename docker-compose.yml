@@ -8,9 +8,13 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - '.:/src'
-      - '/src/node_modules'
+      - '.:/app'
+      - '/app/node_modules'
     ports:
       - 3001:3000
     environment:
-      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=development
+      - DEBUG=true
+    
+    tty: true
+    stdin_open: true
